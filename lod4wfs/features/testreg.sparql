@@ -1,0 +1,21 @@
+{
+"name":"http://sparql.lod4wfs.de/testreg",
+"title":"testreg",
+"abstract":"abstract",
+"keywords":"keywords",
+"geometryVariable":"?wkt",
+"endpoint":"http://ec2-54-94-208-47.sa-east-1.compute.amazonaws.com:8080/parliament/sparql",
+"crs":"EPSG:4326",
+"enabled":"true",
+"query":"SELECT DISTINCT  ?uri ?sn ?wkt
+WHERE
+  { GRAPH <http://rs.tdwg.org/dwc/iri/sib/>
+      { ?uri <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rs.tdwg.org/dwc/terms/ocurrence> .
+        ?uri <http://rs.tdwg.org/dwc/terms/scientificName> ?sn .
+        ?uri <http://rs.tdwg.org/dwc/terms/phylum> 'Lycopodiophyta' .
+        ?uri <http://www.opengis.net/ont/geosparql#defaultGeometry> ?geo .
+        ?geo <http://www.opengis.net/ont/geosparql#asWKT> ?wkt
+      }
+  }
+"
+}
